@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -32,12 +35,40 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.blue,
         title: const Text('ClipRRect Widget', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white,),),
       ),
-      body: const Center(
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'ClipRRect Widget in Flutter',
+            ClipRRect(
+              borderRadius: const BorderRadius.all(Radius.circular(20)),
+              child: Container(
+                height: 100,
+                width: 300,
+                color: Colors.blue,
+              ),
+            ),
+            const SizedBox(height: 10,),
+            ClipRRect(
+              borderRadius: const BorderRadius.all(Radius.elliptical(50, 20)),
+              child: Container(
+                height: 100,
+                width: 300,
+                color: Colors.blue,
+              ),
+            ),
+            const SizedBox(height: 10,),
+            ClipRRect(
+              borderRadius: const BorderRadius.only(topLeft: Radius.circular(50), bottomRight: Radius.circular(20)),
+              child: Container(
+                height: 100,
+                width: 300,
+                color: Colors.blue,
+              ),
+            ),
+            const SizedBox(height: 10,),
+            ClipRRect(
+              borderRadius: const BorderRadius.only(topLeft: Radius.circular(50), bottomRight: Radius.circular(20)),
+              child: Image.network('https://uploads-ssl.webflow.com/5f841209f4e71b2d70034471/60bb4a2e143f632da3e56aea_Flutter%20app%20development%20(2).png', height: 200, width: 400, fit: BoxFit.fill,),
             ),
           ],
         ),
